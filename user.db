@@ -1,0 +1,19 @@
+-- Create the database
+CREATE DATABASE auth_db;
+
+-- Create a MySQL user for the application
+CREATE USER 'auth_user'@'localhost' IDENTIFIED BY 'your-mysql-password';
+GRANT ALL PRIVILEGES ON auth_db.* TO 'auth_user'@'localhost';
+FLUSH PRIVILEGES;
+
+-- Use the created database
+USE auth_db;
+
+-- Create the users table
+CREATE TABLE users (
+    id VARCHAR(255) PRIMARY KEY,
+    provider VARCHAR(50) NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    picture VARCHAR(255) DEFAULT ''
+);
